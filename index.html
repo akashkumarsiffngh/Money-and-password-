@@ -1,0 +1,86 @@
+<meta name='viewport' content='width=device-width, initial-scale=1'/><!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Unlock Access</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f4f4f4;
+        }
+        .container {
+            text-align: center;
+            padding: 20px;
+            border: 2px solid #4CAF50;
+            border-radius: 10px;
+            background-color: #ffffff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .container h1 {
+            color: #4CAF50;
+        }
+        .input-group {
+            margin: 20px 0;
+        }
+        input[type="password"], button {
+            padding: 10px;
+            width: 100%;
+            margin: 5px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        button {
+            background-color: #4CAF50;
+            color: white;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Unlock Access</h1>
+        <p>Pay ₹99 to get a password valid for 20 days passward sent to your mobile number </p>
+        <p>UPI ID: <strong>9297504070@ybl</strong></p>
+        <div class="input-group">
+            <input type="password" id="password" placeholder="Enter Password">
+        </div>
+        <button onclick="unlockApp()">Unlock</button>
+        <p id="message" style="color: red;"></p>
+    </div>
+
+    <script>
+        // Allowed passwords and a simulated storage for active devices
+        const allowedPasswords = ["212y12", "22t333", "332y22", "88u080", "686f86","258025","9608167546"];
+        const deviceLimit = 1;  // Limit: 1 device per password
+        let activeDevices = {}; // Tracks how many devices are using each password
+
+        function unlockApp() {
+            const enteredPassword = document.getElementById("password").value;
+
+            if (allowedPasswords.includes(enteredPassword)) {
+                // Check if the password already reached the device limit
+                if (activeDevices[enteredPassword] && activeDevices[enteredPassword] >= deviceLimit) {
+                    document.getElementById("message").innerText = "Max device reached at a time";
+                } else {
+                    // Allow access and increase the device count
+                    activeDevices[enteredPassword] = (activeDevices[enteredPassword] || 0) + 1;
+                    window.location.href = "http://akashsinghlivebth.site";
+                }
+            } else {
+                document.getElementById("message").innerText = "Invalid Password!";
+            }
+        }
+    </script>
+</body>
+</html><script>function myFunction() {
+  alert("Button Clicked")
+}</script>
